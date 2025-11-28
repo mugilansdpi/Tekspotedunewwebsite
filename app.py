@@ -12,15 +12,15 @@ app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 
 # ✅ LOGIN MUST BE PRIMARY ACCOUNT
-app.config['MAIL_USERNAME'] = 'mugilpi@gmail.com'  
+app.config['MAIL_USERNAME'] = 'mugilansdpi@gmail.com'  
 
 # ✅ USE APP PASSWORD (NOT NORMAL PASSWORD)
-app.config['MAIL_PASSWORD'] = 'mlcg kvf'
+app.config['MAIL_PASSWORD'] = 'mlcg kvfv ipvk nqjg'
 
 #  mlcg kvfv ipvk nqjg  this is mugilan personal
 
 # ✅ SENDER MUST BE ALIAS
-app.config['MAIL_DEFAULT_SENDER'] = 'mugi@gmail.com'
+app.config['MAIL_DEFAULT_SENDER'] = 'mugilansdpi@gmail.com'
 
 mail = Mail(app)
 
@@ -40,8 +40,8 @@ def send_mail_route():
         # This message notifies the administrator about the new submission.
         admin_msg = Message(
             subject="New Form Submission",
-            sender="mugilai@gmail.com",  # Sent from alias
-            recipients=["mugilan1i@gmail.com"],  # Admin receiver
+            sender="mugilansdpi@gmail.com",  # Sent from alias
+            recipients=["mugilan18sdpi@gmail.com"],  # Admin receiver
             reply_to=user_email,
             body=f"""
 New Form Submission:
@@ -80,7 +80,7 @@ def contact():
 
     msg = Message(
         subject=f"New Contact Form: {data['subject']}",
-        recipients=["mugili@gmail.com"],  # ✅ Receiver
+        recipients=["mugilan18sdpi@gmail.com"],  # ✅ Receiver
         reply_to=data['email'],
         body=f"""
 New Contact Message:
@@ -115,7 +115,12 @@ def submit_form():
         course = data.get("courseTitle", "")
         message = data.get("message", "")
 
-
+        print("New Form Submission:")
+        print("Name:", name)
+        print("Email:", email)
+        print("Phone:", phone)
+        print("Course:", course)
+        print("Message:", message)
 
         # ✅ EMAIL BODY
         email_body = f"""
@@ -133,7 +138,7 @@ Message:
         # ✅ SEND EMAIL TO THIS ADDRESS
         msg = Message(
             subject="New Course Enquiry",
-            recipients=["mugili@gmail.com"],   # ✅ YOUR TARGET EMAIL
+            recipients=["mugilan18sdpi@gmail.com"],   # ✅ YOUR TARGET EMAIL
             body=email_body
         )
 
@@ -150,13 +155,7 @@ Message:
             "message": str(e)
         }), 500
 
-@app.route('/hello', methods=['GET'])
-def hello_world():
-    return jsonify({
-        "status": "success",
-        "message": "Hello World! API is working fine ✅"
-    }), 200
+
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
-
