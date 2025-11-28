@@ -150,7 +150,13 @@ Message:
             "message": str(e)
         }), 500
 
-
+@app.route('/hello', methods=['GET'])
+def hello_world():
+    return jsonify({
+        "status": "success",
+        "message": "Hello World! API is working fine ✅"
+    }), 200
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
+
